@@ -1,5 +1,4 @@
-variable cam is 12
-output cam
+variable hi is 12
+add 12 hi 25.5
+op hi
 output variables
-variable 1 is 29
-output var2

@@ -13,6 +13,10 @@ KEYWORDS:
         3) variable num2 is "19" - assigns "19" to num2
         4) variable num3 is num2 - assings num2's value to num3
 
+    - add: adds values and outputs total
+        1) add 12 21 - prints 23
+        2) add hi 2.5 - prints value of hi + 2.5 (make sure hi is number type)
+
         Trivia: 
             1)"is" in "variable x is y" can be replaced with anything
                but "is" is most readable

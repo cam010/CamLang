@@ -1,3 +1,4 @@
+from typing import Type
 from errors import Error
 import variables
 
@@ -7,9 +8,10 @@ class BuiltIn(variables.Variables):
         self.DIGITS = '0123456789'
         self.CHARS = 'abcdefghijklmnopqrstuvwxyz'
         self.VAR_ALLOWED_SPECIAL_CHARS = '_-'
-        self.keywords = "output op variable"
+        self.keywords = "output op variable add"
 
     def output(self, to_output):
+        "Checks whether 'output' keyword outputs string, int, var ect"
         # Printing all assigned variables
         if to_output == "variables":
             to_print = "Stored Variables:"
@@ -42,7 +44,7 @@ class BuiltIn(variables.Variables):
 
         # Find Value in self.variables
         value = self.check_if_var(to_output)
-        if value != False:
+        if value:
             i = 0
             for char in value:
                 i += 1
@@ -58,6 +60,7 @@ class BuiltIn(variables.Variables):
                 f"Could not find variable \"{to_output}\" to output", "CRITICAL")
 
     def output_val(self, to_output):
+        "Outputs value to screen"
         print(to_output)
 
     def create_variable(self, args):
@@ -118,9 +121,34 @@ class BuiltIn(variables.Variables):
         val1, val2 = self.get_values(val1, val2)
         return int(val2) - int(val1)
 
-    def add(self, val1, val2, ):
-        val1, val2 = self.get_values(val1, val2, )
-        return int(val1) + int(val2)
+    def add(self, values, output=True):
+        """outputs total of values
+           \nif output = False, returns total instead"""
+        values = [x for x in values.split(" ")]
+        values = [x if not self.check_if_var(x) else self.check_if_var(x) for x in values]
+        total = 0
+        try:
+            for x in values:
+                if type(x) != int and type(x) != float:
+                    try:
+                        _type = "int"
+                        for char in x:
+                            if char == ".":
+                                _type = "float"
+                        if _type == "int":
+                            x = int(x)
+                        elif _type == "float":
+                            x = float(x)
+                    except ValueError as e:
+                        Error("Can only add numbers, not other types", "Critical")
+                total += x
+        except TypeError as e:
+            print(e)
+            Error("Can only add numbers, not other types", "Critical")
+            return
+        if output:
+            self.output_val(total)
+        else: return total
 
     def divide(self, val1, val2, ):
         val1, val2 = self.get_values(val1, val2, )

@@ -1,12 +1,14 @@
 from CamLang_libraries import BuiltIn as cll
+
+
 class Funcs:
     def __init__(self) -> None:
         self.functions = {
             "output": [["/builtins"], [cll().output], ["stop"]],
             "op": [["output"], ["stop"]],
-            "variable": [["/builtins"], [cll().create_variable], ["stop"]]
+            "variable": [["/builtins"], [cll().create_variable], ["stop"]],
+            "add": [["/builtins"], [cll().add], ["stop"]]
         }
-       
 
     def add_function(self, function: str, commands: list) -> None:
         self.functions[f'{function}'] = commands
@@ -20,5 +22,3 @@ class Funcs:
         except Exception as e:
             print(f"INTERNAL ERROR - {e}")
             return False
-
-
