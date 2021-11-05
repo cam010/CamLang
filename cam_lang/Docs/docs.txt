@@ -1,0 +1,18 @@
+KEYWORDS:
+    - output: prints to screen
+        1) output "2tg" - prints string "2tg"
+        2) output 18 - prints integer 18
+        4) output var - prints variable var
+        5) output variables - prints all stored variables
+    
+    - op: same as output
+
+    - variable: assigns a value to a variable
+        1) variable num is 18 - assigns 18 to variable num
+        2) variable letter is "a" - assigns "a" to variable letter
+        3) variable num2 is "19" - assigns "19" to num2
+        4) variable num3 is num2 - assings num2's value to num3
+
+        Trivia: 
+            1)"is" in "variable x is y" can be replaced with anything
+               but "is" is most readable

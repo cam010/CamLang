@@ -1,0 +1,6 @@
+variable num is 19
+
+output 19
+output variables
+op "200"
+op num
