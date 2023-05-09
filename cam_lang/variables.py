@@ -3,7 +3,7 @@ import json
 
 class Variables:
     def __init__(self) -> None:
-        self.variable_path = "variables.json"
+        self.variable_path = r"C:\Users\heath\Desktop\CamCoding\CamLang\CamLang\cam_lang\variables.json"
         with open(self.variable_path) as f:
             self.variables = json.load(f)
 

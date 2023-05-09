@@ -17,6 +17,6 @@ KEYWORDS:
         1) add 12 21 - prints 23
         2) add hi 2.5 - prints value of hi + 2.5 (make sure hi is number type)
 
-        Trivia: 
-            1)"is" in "variable x is y" can be replaced with anything
-               but "is" is most readable
+    Trivia: 
+        1)"is" in "variable x is y" can be replaced with anything
+            but "is" is most readable
